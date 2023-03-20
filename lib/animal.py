@@ -11,11 +11,12 @@ class Animal:
 
     @classmethod
     def find_by_species(cls, species):
-        filtered = []
-        for animal in cls.all:
-            if animal.species == species:
-                filtered.append(animal)
-        return filtered
+        # filtered = []
+        # for animal in cls.all:
+        #     if animal.species == species:
+        #         filtered.append(animal)
+        # return filtered
+        return [a for a in cls.all if a.species == species]
 
 
 
