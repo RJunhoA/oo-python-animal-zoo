@@ -4,13 +4,17 @@ class Zoo(Animal):
 
     all = []
 
-    def __init__(self, name="", location=""):
+    def __init__(self, name, location):
         self.name = name
         self.location = location
         Zoo.all.append(self)
 
     def animals(self):
-        return Animal.all
+        list = []
+        for animal in Animal.all:
+            if animal.zoo == self:
+                list.append(animal)
+        return list
     
     def animal_species(self):
         species = []
@@ -46,5 +50,11 @@ a1 = Animal( 'Lion', 75, 'Luke', z1 )
 a2 = Animal( 'Dog', 50, 'Ammo', z1 )
 a3 = Animal( 'Dog', 50, 'Cici', z1 )
 
+z2 = Zoo('Bronx Zoo', 'The Bronx')
+a1 = Animal( 'Lion', 75, 'Luke', z2 )
+a2 = Animal( 'Dog', 50, 'Ammo', z2 )
+a3 = Animal( 'Dog', 50, 'Cici', z2 )
 
-# ipdb.set_trace()
+
+
+ipdb.set_trace()
